@@ -1,8 +1,8 @@
 {
-  "name": "jelly-framework",
-  "version": "0.0.1",
-  "description": "Jelly front-end framework developed with love and web technologies",
-  "email": "astorino.design@gmail.com",
+  "name": "mattia-astorino-portfolio",
+  "version": "1.0.0",
+  "description": "Mattia Astorino's Personal Portfolio",
+  "email": "astorino.mattia@gmail.com",
   "url": "http://astorinomattia.it",
   "private": true,
   "main": "gulpfile.js",
