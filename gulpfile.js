@@ -14,9 +14,9 @@
 
    // Less Compiler settings
    var minifyCSS       = true;
-   var srcPathLess     = './src/less';
-   var srcPathTpl      = './src/jade';
-   var notifyLogo      = './assets/jelly.png';
+   var srcPathLess     = './source/less';
+   var srcPathTpl      = './source/jade';
+   var notifyLogo      = './logo.png';
    var defaultCSS      = false;
 
    // Modules loader
@@ -49,14 +49,22 @@
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
    gulp.task('jadeCompiler', function() {
-      return gulp.src( srcPathTpl + '/**/*.jade' )
+      return gulp.src( srcPathTpl + '/**/!(_)*.jade' )
 
       // run jade and prettify the html output
       .pipe(jade({
          pretty: true
       }))
 
+      // save processed file
       .pipe( gulp.dest( distPath ) )
+
+      // Show notification
+      .pipe( notify({
+         title: "Gulp Compiler",
+         message: "HTML compilato con successo",
+         icon: path.join( __dirname, notifyLogo )
+      }))
    });
 
 
@@ -94,7 +102,8 @@
       // Show notification
       .pipe( notify({
          title: "Gulp Compiler",
-         message: "CSS compilato con successo"
+         message: "CSS compilato con successo",
+         icon: path.join( __dirname, notifyLogo )
       }))
 
    });
