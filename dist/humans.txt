@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    <Mattia> -- <Web Designer & Developer> -- <@mattiaastorino>
+
+# THANKS
+
+    <All the world>
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, LESS, CSS3,
+    Normalize.css, Animate.css, OS X, Sketch App

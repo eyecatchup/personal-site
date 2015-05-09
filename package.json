@@ -1,0 +1,39 @@
+{
+   "name": "jelly-framework",
+   "version": "0.0.1",
+   "description": "Jelly front-end framework developed with love and web technologies",
+   "email": "astorino.design@gmail.com",
+   "url": "http://astorinomattia.it",
+   "private": true,
+   "main": "gulpfile.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "devDependencies": {
+      "browser-sync": "^2.2.1",
+      "gulp": "^3.8.11",
+      "gulp-autoprefixer": "^2.1.0",
+      "gulp-if": "^1.2.5",
+      "gulp-less": "^3.0.0",
+      "gulp-minify-css": "^0.4.6",
+      "gulp-newer": "^0.5.0",
+      "gulp-notify": "^2.2.0",
+      "gulp-rename": "^1.2.0",
+      "less-plugin-glob": "^1.1.0",
+      "path": "^0.11.14",
+      "run-sequence": "^1.0.2"
+   },
+   "repository": {
+      "type": "git",
+      "url": "https://mattia-astorino@bitbucket.org/mattia-astorino/jelly-framework.git"
+   },
+   "keywords": [
+      "jelly",
+      "framework",
+      "html",
+      "css",
+      "javascript"
+   ],
+   "author": "Mattia Astorino",
+   "license": "MIT"
+}
