@@ -44,9 +44,6 @@
    var notifyLogo      = './assets/jelly.png';
    var defaultCSS      = false;
 
-   // Browser support for browser-sync
-   var browser_support = ['last 2 versions'];
-
    // Modules loader
    var gulp            = require('gulp'),
        browserSync     = require('browser-sync'),
@@ -64,6 +61,14 @@
 
 
 
+   // Browser settings for browser-sync
+   var browser_support = ['last 2 versions'];
+   var browserReload   = browserSync.reload;
+
+
+
+
+
 
 // JADE template compiler
 // #############################################################################
@@ -75,7 +80,8 @@
       .pipe(jade({
          pretty: true
       }))
-      .pipe(gulp.dest( distPath ))
+
+      .pipe( gulp.dest( distPath ) )
    });
 
 
@@ -109,12 +115,23 @@
       .pipe( gulpif( minifyCSS, minifycss() ) )
       .pipe( gulp.dest( distPath + cssPath ) )
 
+
       // Show notification
       .pipe( notify({
          title: "Gulp Compiler",
          message: "CSS compilato con successo"
       }))
 
+   });
+
+
+
+// Base watcher task and reloader
+// #############################################################################
+
+   gulp.task('watch', function() {
+      gulp.watch( srcPathLess + '/**/*.less', [ 'lessCompiler' ] );
+      gulp.watch( srcPathTpl + '/**/*.jade', [ 'jadeCompiler' ] );
    });
 
 
@@ -132,19 +149,9 @@
       });
 
       // watching files and run "lessCompiler" task
-      gulp.watch( srcPathLess + '/**/*.less', ['lessCompiler', browserSync.reload] );
-      gulp.watch( srcPathTpl + '/**/*.jade', ['jadeCompiler', browserSync.reload] );
+      gulp.watch( srcPathLess + '/**/*.less', ['lessCompiler', browserSync.reload ] );
+      gulp.watch( srcPathTpl + '/**/*.jade', ['jadeCompiler', browserSync.reload ] );
       gulp.watch( distPath + "/**/*.html" ).on( 'change', browserSync.reload );
-   });
-
-
-
-// Base watcher task
-// #############################################################################
-
-   gulp.task('watch', function() {
-      gulp.watch( srcPathLess + '/**/*.less', ['lessCompiler'] );
-      gulp.watch( srcPathTpl + '/**/*.jade', ['jadeCompiler'] );
    });
 
 
@@ -152,5 +159,5 @@
 // Registered tasks
 // #############################################################################
 
-   gulp.task('default', ['lessCompiler', 'jadeCompiler', 'watch']);
-   gulp.task('server', ['browser-sync']);
+   gulp.task('default', [ 'lessCompiler', 'jadeCompiler', 'watch' ]);
+   gulp.task('server', [ 'browser-sync' ]);
