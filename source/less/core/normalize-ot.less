@@ -1,94 +1,68 @@
-//
-//  Mattia Astorino
-//  Developed with love by Mattia Astorino and some awesome peoples
-//  www.astorinomattia.it
-//
-//  Licensed under the MIT License
-//  http://opensource.org/licenses/MIT
-//  ____________________________________________________________________________
-
-//  # normalize-opentype.less v0.2.4 | MIT License | kennethormandy.com/journal/normalize-opentype-css
-//  # normalize-ot.less
-
-::selection
-{
-  color:inherit;
-  text-shadow:inherit;
-  background-color:#ACCEF7;
+::-moz-selection {
+  color: inherit;
+  text-shadow: inherit;
+  background-color: #ACCEF7;
 }
 
-body,html,table
-{
-  font-feature-settings:kern 1,liga 1,calt 1,pnum 1,tnum 0 1,lnum 0 0;
+::selection {
+  color: inherit;
+  text-shadow: inherit;
+  background-color: #ACCEF7;
 }
 
-h1,h2,h3
-{
-  font-feature-settings:kern 1,liga 1,calt 1,pnum 1,tnum 0 1,lnum 0 1;
+html, body, table {
+  -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0;
+     -moz-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0;
+          font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0;
 }
 
-abbr
-{
-  text-transform:uppercase;
-  font-feature-settings:kern 1,liga 1,calt 1,pnum 1,tnum 0 1,lnum 0 1s 1;
+h1, h2, h3 {
+  -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
+     -moz-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
+          font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
 }
 
-time
-{
-  font-feature-settings:kern 1,liga 1,calt 1,pnum 1,tnum 0 1,lnum 0;
+abbr {
+  text-transform: uppercase;
+  -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1;
+     -moz-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1;
+          font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "smcp" 1, "c2sc" 1;
 }
 
-code,kbd,pre,samp
-{
-  font-feature-settings:kern 0 0 1,dlig 0 0 1,onum 0 1,zero 1;
+time {
+  -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0;
+     -moz-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0;
+          font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0;
 }
 
-input[type=color],input[type=date],input[type=datetime],input[type=datetime-local],input[type=number],input[type=range],input[type=tel],input[type=week]
-{
-  font-feature-settings:kern 0 1,calt 1,pnum 1,tnum 0 0 1,zero 0;
+pre, kbd, samp, code {
+  -webkit-font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
+     -moz-font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
+          font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
 }
 
-// // // :lang(cy) q
-{
-  quotes:\2018 \2019 \201C \201D \2018 \2019 \201C \201D;
+
+sup {
+  -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
+     -moz-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
+          font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
 }
 
-// // :lang(af) q,// :lang(en) q,// :lang(en-us) q,// :lang(eo) q,// :lang(ga) q,// :lang(id) q,// :lang(ko) q,// :lang(pt-br) q,// :lang(th) q,// :lang(tr) q,// :lang(zh) q
-{
-  quotes:\201C \201D \2018 \2019 \201C \201D \2018 \2019;
+
+sub {
+  -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
+     -moz-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
+          font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
 }
 
-// // :lang(sq) q,// :lang(bs) q
-{
-  quotes:\201E \201C \2018 \2019 \201E \201C \2018 \2019;
+input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="number"], input[type="range"], input[type="tel"], input[type="week"] {
+  -webkit-font-feature-settings: "kern" 0, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 1, "zero" 0;
+     -moz-font-feature-settings: "kern" 0, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 1, "zero" 0;
+          font-feature-settings: "kern" 0, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 1, "zero" 0;
 }
 
-// // :lang(ar) q
-{
-  quotes:\201D \201C;
-}
-
-// // :lang(cs) q,// :lang(de) q,// :lang(is) q,// :lang(sb) q,// :lang(sk) q,// :lang(sl) q
-{
-  quotes:\201E \201C \201A \2018 \201E \201C \201A \2018;
-}
-
-// // q:before
-{
-  content:open-quote;
-}
-
-// // q:after
-{
-  content:close-quote;
-}
-
-caption,tbody
-{
-  font-feature-settings:kern 1,liga 1,calt 1,pnum 0 1,onum 0 1,zero 1;
-}
-
-sup,sub
-{
-  font-feature-settings:kern 1,liga 1,calt 1,pnum 1,tnum 0 1,lnum 0 0 1;
+tbody, caption {
+  -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
+     -moz-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
+          font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1;
 }

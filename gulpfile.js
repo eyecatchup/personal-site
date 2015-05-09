@@ -61,7 +61,7 @@
 
       // Show notification
       .pipe( notify({
-         title: "Gulp Compiler",
+         title: "",
          message: "HTML compilato con successo",
          icon: path.join( __dirname, notifyLogo )
       }))
