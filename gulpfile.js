@@ -16,7 +16,7 @@
    var cssPath         = '/css';   // Must be inside distPath
    var serverPath      = './dist'; // Local server root folder
 
-   // Compiler settings
+   // Less Compiler settings
    var minifyCSS       = true;
 
 
@@ -36,10 +36,11 @@
 // -----------------------------------------------------------------------------
 
 
-// Compiler settings
+// Less Compiler settings
 // #############################################################################
 
-   var srcPath         = './src/less';
+   var srcPathLess     = './src/less';
+   var srcPathTpl      = './src/jade';
    var notifyLogo      = './assets/jelly.png';
    var defaultCSS      = false;
 
@@ -50,6 +51,7 @@
    var gulp            = require('gulp'),
        browserSync     = require('browser-sync'),
        path            = require('path'),
+       jade            = require('gulp-jade'),
        lessGlob        = require('less-plugin-glob'),
        less            = require('gulp-less'),
        autoprefixer    = require('gulp-autoprefixer'),
@@ -62,6 +64,22 @@
 
 
 
+
+// JADE template compiler
+// #############################################################################
+
+   gulp.task('jadeCompiler', function() {
+      return gulp.src( srcPathTpl + '/**/*.jade' )
+
+      // run jade and prettify the html output
+      .pipe(jade({
+         pretty: true
+      }))
+      .pipe(gulp.dest( distPath ))
+   });
+
+
+
 // LESS Task Compiler
 // #############################################################################
 
@@ -69,15 +87,16 @@
    if ( minifyCSS == true ) { var defaultCSS = false; }
    else if ( minifyCSS == false ) { var defaultCSS = true; }
 
-   // Compiler
-   gulp.task('compiler', function() {
-      return gulp.src( srcPath + '/main.less' )
+   // Less Compiler
+   gulp.task('lessCompiler', function() {
+      return gulp.src( srcPathLess + '/style.less' )
 
+      // check if files changed
       .pipe( newer( distPath + cssPath ) )
 
       // Running less parser
       .pipe(less({
-         paths: [ path.join( __dirname, srcPath ) ],
+         paths: [ path.join( __dirname, srcPathLess ) ],
          plugins: [lessGlob]
       }))
 
@@ -103,7 +122,7 @@
 // Browsersync static server + watching less/html files
 // #############################################################################
 
-   gulp.task( 'browser-sync', ['compiler'], function() {
+   gulp.task( 'browser-sync', ['lessCompiler', 'jadeCompiler'], function() {
 
       // browserSync options
       browserSync({
@@ -112,8 +131,9 @@
          }
       });
 
-      // watching files and run "compiler" task
-      gulp.watch( srcPath + '/**/*.less', ['compiler', browserSync.reload] );
+      // watching files and run "lessCompiler" task
+      gulp.watch( srcPathLess + '/**/*.less', ['lessCompiler', browserSync.reload] );
+      gulp.watch( srcPathTpl + '/**/*.jade', ['jadeCompiler', browserSync.reload] );
       gulp.watch( distPath + "/**/*.html" ).on( 'change', browserSync.reload );
    });
 
@@ -123,7 +143,8 @@
 // #############################################################################
 
    gulp.task('watch', function() {
-      gulp.watch( srcPath + '/**/*.less', ['compiler'] );
+      gulp.watch( srcPathLess + '/**/*.less', ['lessCompiler'] );
+      gulp.watch( srcPathTpl + '/**/*.jade', ['jadeCompiler'] );
    });
 
 
@@ -131,5 +152,5 @@
 // Registered tasks
 // #############################################################################
 
-   gulp.task('default', ['compiler', 'watch']);
+   gulp.task('default', ['lessCompiler', 'jadeCompiler', 'watch']);
    gulp.task('server', ['browser-sync']);
