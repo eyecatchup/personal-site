@@ -14,11 +14,12 @@
 
    // Compiler settings
    var minifyCSS       = true;
-   var srcPathLess     = './source/less';
-   var srcPathTpl      = './source/jade';
-   var srcPathIcns     = './source/icons';
-   var notifyLogo      = './logo.png';
    var defaultCSS      = false;
+   var notifyLogo      = './logo.png';
+   var srcPath         = './source'
+   var srcPathLess     = srcPath + '/less';
+   var srcPathTpl      = srcPath + '/jade';
+   var srcPathIcns     = srcPath + '/icons';
 
    // Modules loader
    var gulp            = require('gulp'),
@@ -117,10 +118,15 @@
    // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
    gulp.task('svgstore', function () {
-      return gulp.src( srcPathIcns + '/*.svg' )
+      return gulp.src( srcPathIcns + '/*.svg', { base: process.cwd() } )
       .pipe( svgmin() )
       .pipe( svgstore() )
-      .pipe( gulp.dest( distPath + '/assets/images' ) );
+      .pipe(rename({
+         basename: "icons",
+         prefix: "_",
+         extname: ".jade"
+      }))
+      .pipe( gulp.dest( srcPathTpl + '/includes/' ) );
    });
 
 
