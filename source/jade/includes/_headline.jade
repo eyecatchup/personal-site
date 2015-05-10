@@ -26,8 +26,9 @@ div.headline
    //- Navigation menu
    //- •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••                  
    nav.navigation
-      span.navigation-visual-trigger
+      div.navigation-container
          input.navigation__trigger( type="checkbox" )
-         svg.navigation-visual-trigger__icon: use( xlink:href="#source--icons--hamburger" )
-      a.navigation__link( href="#" ) WORKS
-      a.navigation__link( href="#" ) LAB
+         span.navigation-visual-trigger
+            svg.navigation-visual-trigger__icon: use( xlink:href="#source--icons--hamburger" )
+         a.navigation__link.is-current( href="#" ) WORKS
+         a.navigation__link( href="#" ) LAB

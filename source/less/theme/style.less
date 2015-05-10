@@ -113,12 +113,12 @@
 
       @media screen and @large {
       display: table-cell;
-      width: 310px; }
+      width: 315px; }
    }
 
 
    .headline__title {
-   margin: 15px 0;
+   margin: 0 0 15px 0;
    letter-spacing: 4.2px;
    font-size: 26px;
    text-align: center;
@@ -142,7 +142,7 @@
 
 
    .headline-socials {
-   margin-top: 15px;
+   margin-top: 5px;
    position: relative;
    text-align: center; }
 
@@ -211,14 +211,24 @@
    }
 
 
-   .navigation__trigger {
-   height: 100%;
+   .navigation-container {
+   position: relative;
    width: 100%;
-   outline: none;
-   position: absolute;
+   display: inline-block; }
 
-      @media screen and @large {
-      position: absolute; }
+
+   .navigation__trigger {
+   outline: none;
+   //opacity: 0;
+   z-index: 1;
+   box-sizing: border-box;
+   position: absolute;
+   top: 0;
+   left: 20px;
+   width: 25px;
+   height: 20px;
+
+      @media screen and @large { }
    }
 
 
@@ -228,9 +238,7 @@
    position: relative;
    vertical-align: middle;
 
-      @media screen and @large {
-
-      }
+      @media screen and @large { }
 
       &:hover {
       cursor: pointer; }
@@ -243,12 +251,28 @@
    fill: @color-secondary; }
 
 
+   // Navigation behavior
+   .navigation__trigger:checked {
+
+      // show navigation links
+      ~ .navigation__link {
+      display: inline-block; }
+
+      ~ .navigation-visual-trigger .navigation-visual-trigger__icon {
+      fill: red; }
+   }
+
+
    .navigation__link {
-   display: inline-block;
-   padding: 12px 11px;
+   padding: 12px 15px;
+   display: none;
    letter-spacing: 2.5px;
    color: @color-secondary;
    text-decoration: none;
    line-height: 20px;
    font-size: 14px;
-   font-weight: 400; }
+   font-weight: 400;
+
+      &.is-current {
+      background-color: @color-cta; }
+   }
