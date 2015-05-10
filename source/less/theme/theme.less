@@ -9,11 +9,9 @@
  *		- 1.1 COLORS AND CONFIGURATIONS
  *		- 1.2 BASIC STYLE
  *
- *	2. LAYOUT
- *		- 2.1 ACCOMODATION POPUP
- *		- 2.2 SUBMENU PAGE SECTION
- *		- 2.3 SUBMENU LANG SECTION
- *		- 2.4 SUBMENU SEARCH SECTION
+ *	3. HEADLINE
+ *		- 3.1 HEADINGS
+ *		- 3.2 SOCIALS
  *
  *	3. BOOKING STEPS
  *		- 3.1 BREADCRUMB
@@ -44,6 +42,7 @@
 
    /* 1.2 BASIC STYLE
    ========================================================================== */
+
 
    body {
    padding: 0;
@@ -89,8 +88,9 @@
 
 
 /* •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-2. LAYOUT
+3. HEADLINE
 •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
 
    .headline {
    position: absolute;
@@ -107,6 +107,10 @@
       text-align: left;
       margin-left: 12%; }
    }
+
+
+   /* 2.1 HEADINGS
+   ========================================================================== */
 
 
    .headline__title {
@@ -133,15 +137,20 @@
    color: @color-cta; }
 
 
+   /* 2.2 SOCIALS
+   ========================================================================== */
+
+
    .headline-socials {
    margin-top: 10px;
+   position: relative;
    text-align: center; }
 
 
    .headline-socials__link {
    padding: 10px 20px;
    display: inline-block;
-   transition: all 300ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+   transition: all 3   00ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
    transform: scale(1.2);
 
       @media screen and @small {
@@ -154,4 +163,11 @@
    display: inline-block;
    height: 18px;
    width: 20px;
-   fill: #FFF; }
+   will-change: transform;
+   transition: all 300ms;
+   fill: #FFF;
+
+      &.dribbble:hover { fill: #EA4C89; }
+      &.twitter:hover { fill: #55ACEE; }
+      &.github:hover { fill: #d6dbe2; }
+   }
