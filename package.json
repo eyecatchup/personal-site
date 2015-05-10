@@ -20,11 +20,13 @@
     "gulp-newer": "^0.5.0",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.0",
+    "gulp-svg-sprite": "^1.1.2",
     "gulp-svgmin": "^1.1.2",
     "gulp-svgstore": "^5.0.1",
     "less-plugin-glob": "^1.1.0",
     "path": "^0.11.14",
-    "run-sequence": "^1.0.2"
+    "run-sequence": "^1.0.2",
+    "vinyl": "^0.4.6"
   },
   "repository": {
     "type": "git",

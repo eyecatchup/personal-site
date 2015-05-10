@@ -34,7 +34,7 @@
        newer           = require('gulp-newer'),
        gulpif          = require('gulp-if'),
        runSequence     = require('run-sequence'),
-       svgstore        = require('gulp-svgstore'),
+       svgSprite       = require('gulp-svg-sprite'),
        svgmin          = require('gulp-svgmin'),
        notify          = require('gulp-notify');
 
@@ -117,15 +117,21 @@
    // SVG SPRITE GENERATOR
    // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
-   gulp.task('svgstore', function () {
-      return gulp.src( srcPathIcns + '/*.svg', { base: process.cwd() } )
-      .pipe( svgmin() )
-      .pipe( svgstore() )
-      .pipe(rename({
+   config = {
+      mode: {
+         symbol: true      // Activate the «symbol» mode
+      }
+   };
+
+   gulp.task('svgsprite', function () {
+      gulp.src( srcPathIcns + '/*.svg', { base: process.cwd() } )
+      .pipe( svgSprite( config ) )
+      .pipe( rename({
+         dirname: "/",
          basename: "icons",
          prefix: "_",
          extname: ".jade"
-      }))
+      }) )
       .pipe( gulp.dest( srcPathTpl + '/includes/' ) );
    });
 
@@ -144,7 +150,7 @@
 // Browsersync static server + watching less/html files
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
-   gulp.task( 'browser-sync', ['lessCompiler', 'jadeCompiler', 'svgstore'], function() {
+   gulp.task( 'browser-sync', ['lessCompiler', 'jadeCompiler', 'svgsprite'], function() {
 
       // browserSync options
       browserSync({
@@ -157,7 +163,7 @@
       gulp.watch( srcPathLess + '/**/*.less', ['lessCompiler', browserSync.reload ] );
       gulp.watch( srcPathTpl + '/**/*.jade', ['jadeCompiler', browserSync.reload ] );
       gulp.watch( distPath + "/**/*.html" ).on( 'change', browserSync.reload );
-      gulp.watch( srcPathIcns + '/*.svg', [ 'svgstore' ] );
+      gulp.watch( srcPathIcns + '/*.svg', [ 'svgsprite' ] );
    });
 
 
@@ -166,5 +172,5 @@
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
    gulp.task('default', [ 'lessCompiler', 'jadeCompiler', 'watch' ]);
-   gulp.task('svg', [ 'svgstore' ]);
+   gulp.task('svg', [ 'svgsprite' ]);
    gulp.task('server', [ 'browser-sync' ]);

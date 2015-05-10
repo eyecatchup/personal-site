@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+doctype html
 html(lang="it")
    head
-      //-- Metatags 
+      //- Metatags 
       include includes/_metatags.jade
       //- Library and settings
       link( rel='stylesheet', href='/css/style.min.css' )
@@ -9,11 +9,5 @@ html(lang="it")
       //- Icons library (symbols)
       div( style='display: none' )
          include includes/_icons.jade
-      //- Headline module 
-      div.headline
-         h1.headline__title MATTIA <strong>ASTORINO</strong>
-         h2.headline__subtitle WEB DESIGNER <span class="headline__mark">&</span> DEVELOPER 
-         div.headline-socials
-            a.headline__social-icon(href="#")
-            a.headline__social-icon(href="#")
-            a.headline__social-icon(href="#")
+      //- Include headline module
+      include includes/_headline.jade

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
-    <title>Dribbble</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-324.000000, -494.000000)" fill="#FFFFFF">
+    <g id="Homepage" stroke="none" stroke-width="1" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-324.000000, -494.000000)">
             <g id="Herobanner" sketch:type="MSLayerGroup" transform="translate(-8.000000, 0.000000)">
                 <g id="Headline" transform="translate(227.000000, 387.000000)" sketch:type="MSShapeGroup">
                     <g id="Socials" transform="translate(105.500000, 107.000000)">
