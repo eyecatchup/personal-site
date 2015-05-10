@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg width="26px" height="20px" viewBox="0 0 26 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
-    <title>hamburger</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Homepage" stroke="none" stroke-width="1" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-554.000000, -445.000000)">
-            <g id="Herobanner" sketch:type="MSLayerGroup" transform="translate(-8.000000, 0.000000)">
+    <g stroke="none" stroke-width="1" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSArtboardGroup" transform="translate(-554.000000, -445.000000)">
+            <g sketch:type="MSLayerGroup" transform="translate(-8.000000, 0.000000)">
                 <path d="M562.8125,446.5 L587.1875,446.5 C587.636,446.5 588,446.2765 588,446 C588,445.7235 587.636,445.5 587.1875,445.5 L562.8125,445.5 C562.364,445.5 562,445.7235 562,446 C562,446.2765 562.363187,446.5 562.8125,446.5 Z M562.8125,464.5 L587.1875,464.5 C587.636,464.5 588,464.2765 588,464 C588,463.7235 587.636,463.5 587.1875,463.5 L562.8125,463.5 C562.364,463.5 562,463.7235 562,464 C562,464.2765 562.363187,464.5 562.8125,464.5 Z M562.8125,455.5 L587.1875,455.5 C587.636,455.5 588,455.2765 588,455 C588,454.7235 587.636,454.5 587.1875,454.5 L562.8125,454.5 C562.364,454.5 562,454.7235 562,455 C562,455.2765 562.363187,455.5 562.8125,455.5 Z" id="hamburger" sketch:type="MSShapeGroup"></path>
             </g>
         </g>
