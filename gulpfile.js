@@ -12,10 +12,11 @@
    var cssPath         = '/css';   // Must be inside distPath
    var serverPath      = './dist'; // Local server root folder
 
-   // Less Compiler settings
+   // Compiler settings
    var minifyCSS       = true;
    var srcPathLess     = './source/less';
    var srcPathTpl      = './source/jade';
+   var srcPathIcns     = './source/icons';
    var notifyLogo      = './logo.png';
    var defaultCSS      = false;
 
@@ -32,6 +33,8 @@
        newer           = require('gulp-newer'),
        gulpif          = require('gulp-if'),
        runSequence     = require('run-sequence'),
+       svgstore        = require('gulp-svgstore'),
+       svgmin          = require('gulp-svgmin'),
        notify          = require('gulp-notify');
 
 
@@ -61,7 +64,7 @@
 
       // Show notification
       .pipe( notify({
-         title: "",
+         title: "Gulp Compiler",
          message: "HTML compilato con successo",
          icon: path.join( __dirname, notifyLogo )
       }))
@@ -110,6 +113,18 @@
 
 
 
+   // SVG SPRITE GENERATOR
+   // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+   gulp.task('svgstore', function () {
+      return gulp.src( srcPathIcns + '/*.svg' )
+      .pipe( svgmin() )
+      .pipe( svgstore() )
+      .pipe( gulp.dest( distPath + '/assets/images' ) );
+   });
+
+
+
 // Base watcher task and reloader
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
@@ -123,7 +138,7 @@
 // Browsersync static server + watching less/html files
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
-   gulp.task( 'browser-sync', ['lessCompiler', 'jadeCompiler'], function() {
+   gulp.task( 'browser-sync', ['lessCompiler', 'jadeCompiler', 'svgstore'], function() {
 
       // browserSync options
       browserSync({
@@ -132,10 +147,11 @@
          }
       });
 
-      // watching files and run "lessCompiler" task
+      // watching files and run compilers
       gulp.watch( srcPathLess + '/**/*.less', ['lessCompiler', browserSync.reload ] );
       gulp.watch( srcPathTpl + '/**/*.jade', ['jadeCompiler', browserSync.reload ] );
       gulp.watch( distPath + "/**/*.html" ).on( 'change', browserSync.reload );
+      gulp.watch( srcPathIcns + '/*.svg', [ 'svgstore' ] );
    });
 
 
@@ -144,4 +160,5 @@
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
    gulp.task('default', [ 'lessCompiler', 'jadeCompiler', 'watch' ]);
+   gulp.task('svg', [ 'svgstore' ]);
    gulp.task('server', [ 'browser-sync' ]);
