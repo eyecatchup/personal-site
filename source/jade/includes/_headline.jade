@@ -1,23 +1,31 @@
 //- Headline module 
 div.headline
-   //- Headinline title
-   h1.headline__title MATTIA <strong>ASTORINO</strong>
-   //- Headline subtitle
-   h2.headline__subtitle
-      |WEB DESIGNER
-      span.headline__mark  & 
-      |DEVELOPER
-   //- Headline social links
-   div.headline-socials
-      //- Dribbble link
-      a.headline-socials__link( href="#" )
-         svg.headline__social-icon.dribbble
-            use( xlink:href='#source--icons--dribbble' )
-      //- Twitter link
-      a.headline-socials__link( href="#" )
-         svg.headline__social-icon.twitter
-            use( xlink:href='#source--icons--twitter' )
-      //- GitHub link
-      a.headline-socials__link( href="#" )
-         svg.headline__social-icon.github
-            use( xlink:href='#source--icons--github' )
+   //- Personal information
+   //- •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+   div.info( itemscope itemtype='http://schema.org/Person' )
+      //- Headinline title
+      h1.headline__title( itemprop='name' )
+         |MATTIA 
+         strong ASTORINO
+      //- Headline subtitle
+      h2.headline__subtitle( itemprop='jobTitle' )
+         |WEB DESIGNER
+         span.headline__mark  & 
+         |DEVELOPER
+      //- Headline social links
+      div.headline-socials
+         //- Dribbble link
+         a.headline-socials__link( href="https://dribbble.com/astorino_mattia" target='_blank' )
+            svg.headline__social-icon.dribbble
+               use( xlink:href='#source--icons--dribbble' )
+         //- Twitter link
+         a.headline-socials__link( href="https://twitter.com/MattiaAstorino" target='_blank' )
+            svg.headline__social-icon.twitter
+               use( xlink:href='#source--icons--twitter' )
+         //- GitHub link
+         a.headline-socials__link( href="https://github.com/equinusocio" target='_blank' )
+            svg.headline__social-icon.github
+               use( xlink:href='#source--icons--github' )
+   //- Navigation menu
+   //- •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••                  
+   nav.navigation TEST

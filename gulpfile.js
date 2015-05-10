@@ -82,7 +82,7 @@
 
    // Less Compiler
    gulp.task('lessCompiler', function() {
-      return gulp.src( srcPathLess + '/style.less' )
+      return gulp.src( srcPathLess + '/theme.less' )
 
       // check if files changed
       .pipe( newer( distPath + cssPath ) )
