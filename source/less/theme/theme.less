@@ -1,0 +1,137 @@
+/**
+ * Description: Main theme file
+ * Last update: 10/05/2015
+ * Author: Mattia Astorino <astorino.design@gmail.com>
+ *
+ * Summary:
+ *
+ *	1. CONFIGURATIONS AND BASIC STYLE
+ *		- 1.1 COLORS AND CONFIGURATIONS
+ *		- 1.2 BASIC STYLE
+ *
+ *	2. LAYOUT
+ *		- 2.1 ACCOMODATION POPUP
+ *		- 2.2 SUBMENU PAGE SECTION
+ *		- 2.3 SUBMENU LANG SECTION
+ *		- 2.4 SUBMENU SEARCH SECTION
+ *
+ *	3. BOOKING STEPS
+ *		- 3.1 BREADCRUMB
+ *		- 3.2 BOOKING STEP 1
+ *		- 3.3 BOOKING STEP 2
+ *		- 3.4 BOOKING STEP 3
+ *
+ *	4. CALENDAR
+ *
+ **/
+
+
+/* •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+1. CONFIGURATIONS AND BASIC STYLE
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+
+   /* 1.1 COLORS AND CONFIGURATIONS
+   ========================================================================== */
+
+   @color-cta: #FF2851;
+   @color-primary: #1F1F1F;
+   @color-secondary: #FFF;
+   @tap-highlight-color: @color-cta;
+
+   @font-family: "Montserrat", Tahoma, sans-serif;
+
+
+   /* 1.2 BASIC STYLE
+   ========================================================================== */
+
+   body {
+   padding: 0;
+   height: 100vh;
+   overflow: hidden;
+   position: relative;
+   font-family: @font-family;
+   -webkit-tap-highlight-color: fade( @tap-highlight-color, 10% );
+   background-image: url(/assets/images/turin.jpg);
+   background-size: cover;
+   transition: background-position 300ms;
+   background-position: 73% 60%;
+   background-repeat: no-repeat;
+
+      @media screen and @small {
+      background-position: center center; }
+   }
+
+
+   .clearfix {
+   *zoom: 1; // IE 6 and 7 fix
+
+      &:before {
+      content: " ";
+      display: table; }
+
+      &:after {
+      &:extend( .clearfix:before );
+      clear: both; }
+   }
+
+
+   ::-moz-selection {
+   color: @color-secondary;
+   text-shadow: none;
+   background-color: @color-primary; }
+
+
+   ::selection {
+   color: @color-secondary;
+   text-shadow: none;
+   background-color: @color-primary; }
+
+
+/* •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+2. LAYOUT
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+   .headline {
+   position: absolute;
+   top: 50%;
+   width: 100%;
+   padding: 0 15px;
+   box-sizing: border-box;
+   text-align: center;
+   transform: translateY(-50%);
+   color: @color-secondary;
+
+      @media screen and @small {
+      width: auto;
+      text-align: left;
+      margin-left: 12%; }
+   }
+
+
+   .headline__title {
+   margin: 15px 0;
+   letter-spacing: 4.2px;
+   font-size: 26px;
+   text-align: center;
+   font-weight: 300;
+
+      strong {
+      font-weight: 700; }
+   }
+
+
+   .headline__subtitle {
+   box-sizing: border-box;
+   display: inline-block;
+   margin: 0;
+   border: 2px solid @color-secondary;
+   padding: 10px 25px;
+   text-align: center;
+   font-size: 15px;
+   letter-spacing: 0.8px;
+   font-weight: 400; }
+
+
+   .headline__mark {
+   color: @color-cta; }
