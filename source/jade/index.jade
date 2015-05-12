@@ -15,3 +15,5 @@ html(lang="it")
       include includes/_lab.jade
       //- Include headline module
       include includes/_headline.jade
+      script(type='text/javascript').
+         if (window.location.hash ) { history.replaceState({}, document.title, "/"); }

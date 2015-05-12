@@ -15,22 +15,22 @@ div.headline
       //- Headline social links
       div.headline-socials
          //- Dribbble link
-         a.headline-socials__link.fadeInUp( href="https://dribbble.com/astorino_mattia" target="_blank" )
-            svg.headline__social-icon.dribbble: use( xlink:href="#source--icons--dribbble" )
+         a.headline-socials__link.fadeInUp( title="Follow my work on Dribbble" href="https://dribbble.com/astorino_mattia" target="_blank" )
+            svg.headline__social-icon: use( xlink:href="#source--icons--dribbble" )
          //- Twitter link
-         a.headline-socials__link.fadeInUp( href="https://twitter.com/MattiaAstorino" target="_blank" )
-            svg.headline__social-icon.twitter: use( xlink:href="#source--icons--twitter" )
+         a.headline-socials__link.fadeInUp( title="Follow me on Twitter" href="https://twitter.com/MattiaAstorino" target="_blank" )
+            svg.headline__social-icon: use( xlink:href="#source--icons--twitter" )
          //- GitHub link
-         a.headline-socials__link.fadeInUp( href="https://github.com/equinusocio" target="_blank" )
-            svg.headline__social-icon.github: use( xlink:href="#source--icons--github" )
+         a.headline-socials__link.fadeInUp( title="Follow my lab on GitHub" href="https://github.com/equinusocio" target="_blank" )
+            svg.headline__social-icon: use( xlink:href="#source--icons--github" )
    //- Navigation menu
    //- •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••                  
    nav.navigation.fadeInLeft
       div.navigation-container( itemscope itemtype="http://schema.org/BreadcrumbList" )
-         input.navigation__trigger( type="checkbox" )
+         input#menu-toggle.navigation__trigger( type="checkbox" )
          span.navigation-visual-trigger
             svg.navigation-visual-trigger__icon: use( xlink:href="#source--icons--hamburger" )
-         a#works-link.navigation__link.fadeInLeft( href="#works" itemprop="itemListElement" itemscope
-      itemtype="http://schema.org/ListItem" ) WORKS
-         a#lab-link.navigation__link.fadeInLeft( href="#lab" itemprop="itemListElement" itemscope
-      itemtype="http://schema.org/ListItem" ) LAB
+         a#works-link.navigation__link.fadeInLeft( href="#works" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" )
+            |WORKS
+         a#lab-link.navigation__link.fadeInLeft( href="#lab" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" )
+            |LAB

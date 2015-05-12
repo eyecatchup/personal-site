@@ -16,6 +16,11 @@
     <meta name="theme-color" content="#616161">
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="cleartype" content="on">
+    <meta property="og:title" content="Astorino Mattia">
+    <meta property="og:image" content="http://www.astorinomattia.it/share.jpg">
+    <meta property="og:url" content="http://www.astorinomattia.it">
+    <meta property="og:site_name" content="www.astorinomattia.it">
+    <meta property="og:description" content="I migliori lavori di grafica di Mattia Astorino. Icone, esperimenti e risorse web sono qui che ti aspettano.">
     <meta name="msapplication-TileColor" content="#616161">
     <meta name="msapplication-TileImage" content="/mstile.png">
     <link rel="icon" type="image/png" href="/favicon.png" sizes="16x16">
@@ -27,11 +32,6 @@
     <link rel="apple-touch-icon" sizes="152x152" href="/touch-icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/touch-icon.png">
     <link rel="icon" type="image/png" href="/touch-icon.png" sizes="192x192">
-    <meta property="og:title" content="Astorino Mattia">
-    <meta property="og:image" content="http://www.astorinomattia.it/share.jpg">
-    <meta property="og:url" content="http://www.astorinomattia.it">
-    <meta property="og:site_name" content="www.astorinomattia.it">
-    <meta property="og:description" content="I migliori lavori di grafica di Mattia Astorino. Icone, esperimenti e risorse web sono qui che ti aspettano.">
     <link rel="stylesheet" href="/css/theme.min.css">
   </head>
   <body id="home" class="fadeIn">
@@ -66,26 +66,27 @@
       <div itemscope itemtype="http://schema.org/Person" class="info">
         <h1 itemprop="name" class="headline__title fadeInDown">MATTIA <strong>ASTORINO</strong></h1>
         <h2 itemprop="jobTitle" class="headline__subtitle fadeInDown">WEB DESIGNER<span class="headline__mark"> & </span>DEVELOPER</h2>
-        <div class="headline-socials"><a href="https://dribbble.com/astorino_mattia" target="_blank" class="headline-socials__link fadeInUp">
-            <svg class="headline__social-icon dribbble">
+        <div class="headline-socials"><a title="Follow my work on Dribbble" href="https://dribbble.com/astorino_mattia" target="_blank" class="headline-socials__link fadeInUp">
+            <svg class="headline__social-icon">
               <use xlink:href="#source--icons--dribbble"></use>
-            </svg></a><a href="https://twitter.com/MattiaAstorino" target="_blank" class="headline-socials__link fadeInUp">
-            <svg class="headline__social-icon twitter">
+            </svg></a><a title="Follow me on Twitter" href="https://twitter.com/MattiaAstorino" target="_blank" class="headline-socials__link fadeInUp">
+            <svg class="headline__social-icon">
               <use xlink:href="#source--icons--twitter"></use>
-            </svg></a><a href="https://github.com/equinusocio" target="_blank" class="headline-socials__link fadeInUp">
-            <svg class="headline__social-icon github">
+            </svg></a><a title="Follow my lab on GitHub" href="https://github.com/equinusocio" target="_blank" class="headline-socials__link fadeInUp">
+            <svg class="headline__social-icon">
               <use xlink:href="#source--icons--github"></use>
             </svg></a>
         </div>
       </div>
       <nav class="navigation fadeInLeft">
         <div itemscope itemtype="http://schema.org/BreadcrumbList" class="navigation-container">
-          <input type="checkbox" class="navigation__trigger"><span class="navigation-visual-trigger">
+          <input id="menu-toggle" type="checkbox" class="navigation__trigger"><span class="navigation-visual-trigger">
             <svg class="navigation-visual-trigger__icon">
               <use xlink:href="#source--icons--hamburger"></use>
             </svg></span><a id="works-link" href="#works" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="navigation__link fadeInLeft">WORKS</a><a id="lab-link" href="#lab" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="navigation__link fadeInLeft">LAB</a>
         </div>
       </nav>
     </div>
+    <script type="text/javascript">if (window.location.hash ) { history.replaceState({}, document.title, "/"); }</script>
   </body>
 </html>
