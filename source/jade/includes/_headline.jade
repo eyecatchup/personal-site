@@ -25,10 +25,12 @@ div.headline
             svg.headline__social-icon.github: use( xlink:href="#source--icons--github" )
    //- Navigation menu
    //- •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••                  
-   nav.navigation
-      div.navigation-container
+   nav.navigation.fadeInLeft
+      div.navigation-container( itemscope itemtype="http://schema.org/BreadcrumbList" )
          input.navigation__trigger( type="checkbox" )
          span.navigation-visual-trigger
             svg.navigation-visual-trigger__icon: use( xlink:href="#source--icons--hamburger" )
-         a.navigation__link.fadeInLeft( href="#" ) WORKS
-         a.navigation__link.fadeInLeft( href="#" ) LAB
+         a#works-link.navigation__link.fadeInLeft( href="#works" itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem" ) WORKS
+         a#lab-link.navigation__link.fadeInLeft( href="#lab" itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem" ) LAB

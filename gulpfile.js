@@ -141,8 +141,8 @@
 // •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
    gulp.task('watch', function() {
-      gulp.watch( srcPathLess + '/**/*.less', [ 'lessCompiler' ] );
-      gulp.watch( srcPathTpl + '/**/*.jade', [ 'jadeCompiler' ] );
+      gulp.watch( srcPathLess + '/**/*.less', [ 'lessCompiler', browserSync.reload ] );
+      gulp.watch( srcPathTpl + '/**/*.jade', [ 'jadeCompiler', browserSync.reload ] );
    });
 
 
@@ -160,8 +160,8 @@
       });
 
       // watching files and run compilers
-      gulp.watch( srcPathLess + '/**/*.less', ['lessCompiler', browserSync.reload ] );
-      gulp.watch( srcPathTpl + '/**/*.jade', ['jadeCompiler', browserSync.reload ] );
+      gulp.watch( srcPathLess + '/**/*.less', ['lessCompiler'] );
+      gulp.watch( srcPathTpl + '/**/*.jade', ['jadeCompiler'] );
       gulp.watch( distPath + "/**/*.html" ).on( 'change', browserSync.reload );
       gulp.watch( srcPathIcns + '/*.svg', [ 'svgsprite' ] );
    });

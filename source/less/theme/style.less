@@ -13,9 +13,9 @@
  *		- 2.1 INFO
  *		- 2.2 NAVIGATION
 
- *	3. HEADLINE
- *		- 3.1 HEADINGS
- *		- 3.2 SOCIALS
+ *	3. PANELS
+ *		- 3.1 BEHAVIOR
+ *		- 3.2 STYLE
  *
  *
  *	4. CALENDAR
@@ -38,9 +38,14 @@
 
    @font-family: "Montserrat", Tahoma, sans-serif;
 
+   @panels: works, lab;
+
 
    /* 1.2 BASIC STYLE
    ========================================================================== */
+
+   html {
+   background-color: #373737; }
 
 
    body {
@@ -54,6 +59,8 @@
    background-size: cover;
    background-position: 73% 60%;
    background-repeat: no-repeat;
+   animation-duration: 4s;
+   animation-fill-mode: both;
    display: flex;
    align-items: center; }
 
@@ -103,8 +110,10 @@
       margin-left: 7vw; }
    }
 
+
    /* 2.1 HEADING INFO
    ========================================================================== */
+
 
    .info {
    display: block;
@@ -171,14 +180,9 @@
       width: 25px;
       transform: scale(1); }
 
-      @navLinks: 1 1200, 2 1400, 3 1600;
-      .for( @navLinks ); .-each( @value ) {
-         @child:  extract( @value, 1 );
-         @time: extract( @value, 2 );
-         &:nth-of-type(@{child}) {
-            animation-delay: ~"@{time}ms";
-         }
-      }
+      &:nth-of-type(1) { animation-delay: 1.2s; }
+      &:nth-of-type(2) { animation-delay: 1.4s; }
+      &:nth-of-type(3) { animation-delay: 1.6s; }
 
       &:before {
       content: "";
@@ -216,9 +220,13 @@
    /* 2.2 NAVIGATION
    ========================================================================== */
 
+
    .navigation {
    display: block;
    width: 100%;
+   animation-duration: 1s;
+   animation-delay: 2s;
+   animation-fill-mode: both;
    position: relative;
 
       @media screen and @large {
@@ -324,4 +332,49 @@
       animation-duration: 1s;
       animation-fill-mode: both;
       display: none; }
+   }
+
+
+/* •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+3. CONFIGURATIONS AND BASIC STYLE
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+
+   /* 3.1 BEHAVIOR
+   ========================================================================== */
+
+
+   .panel {
+   background-color: #FFF;
+   position: fixed;
+   overflow: auto;
+   -webkit-overflow-scrolling: touch;
+   box-sizing: border-box;
+   transform: translate3d( 100%, 0, 0 );
+   transition: transform 600ms cubic-bezier(0.275, 0.935, 0.635, 1.005);
+   will-change: transform, -webkit-transform;
+   top: 0;
+   right: 0;
+   left: 0;
+   z-index: 2;
+   bottom: 0;
+
+      @media screen and @large {
+      width: 45vw;
+      top: 0;
+      right: 0;
+      left: auto;
+      bottom: 0; }
+   }
+
+   // Panels generator
+   .for( @panels ); .-each( @panelName ) {
+      @panel:  extract( @panelName, 1 );
+
+      .panel#@{panel}:target {
+      transform: translate3d( 0, 0, 0 );  }
+
+      #@{panel}:target ~ .headline .navigation .navigation-container #@{panel}-link {
+      background: @color-cta;
+      color: @color-secondary; }
    }

@@ -5,9 +5,13 @@ html(lang="it")
       include includes/_metatags.jade
       //- Library and settings
       link( rel="stylesheet", href="/css/theme.min.css" )
-   body 
+   body.fadeIn#home
       //- Icons library (symbols)
       div( style="display: none" )
          include includes/_icons.jade
+      //- Works panel
+      include includes/_works.jade
+      //- Lab panel
+      include includes/_lab.jade
       //- Include headline module
       include includes/_headline.jade
