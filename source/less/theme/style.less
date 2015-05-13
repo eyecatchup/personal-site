@@ -334,7 +334,7 @@
 
 
 /* •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-3. CONFIGURATIONS AND BASIC STYLE
+3. BEHAVIOR AND STYLE
 •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
 
 
@@ -346,8 +346,10 @@
    background-color: #FFF;
    position: fixed;
    overflow: auto;
+   box-sizing: border-box;
    -webkit-overflow-scrolling: touch;
    box-sizing: border-box;
+   padding: 0 40px;
    transform: translate3d( 100%, 0, 0 );
    transition: transform 600ms cubic-bezier(0.275, 0.935, 0.635, 1.005);
    will-change: transform, -webkit-transform;
@@ -359,6 +361,7 @@
 
       @media screen and @large {
       width: 45vw;
+      max-width: 700px;
       top: 0;
       right: 0;
       left: auto;
@@ -367,6 +370,7 @@
       &--dark:extend( .panel all ) {
       background-color: @color-primary; }
    }
+
 
    // Panels generator
    .for( @panels ); .-each( @panelName ) {
@@ -378,4 +382,54 @@
       #@{panel}:target ~ .headline .navigation .navigation-container #@{panel}-link {
       background: @color-cta;
       color: @color-secondary; }
+
+      #@{panel}:target ~ .panel-close {
+      display: block; }
    }
+
+
+   .panel-close {
+   display: none;
+   top: 20px;
+   right: 20px;
+   height: 18px;
+   width: 20px;
+   animation-duration: 1s;
+   animation-fill-mode: both;
+
+      @media screen and @large {
+      position: fixed;
+      z-index: 2; }
+   }
+
+
+   .panel-close__icon {
+   fill: #8E8E93;
+   display: inline-block;
+   width: 18px;
+   height: 18px;
+
+      &--light:extend( .panel-close__icon all ) {
+      fill: @color-secondary; }
+   }
+
+
+   /* 3.2 STYLE
+   ========================================================================== */
+
+   .panel-content__heading {
+   margin: 85px 0; }
+
+
+   .panel__title {
+   font-size: 28px;
+   font-weight: 700;
+   text-align: center;
+   margin: 0; }
+
+
+   .panel__subtitle {
+   font-size: 14px;
+   font-weight: 400;
+   text-align: center;
+   margin: 0; }

@@ -16,4 +16,4 @@ html(lang="it")
       //- Include headline module
       include includes/_headline.jade
       script(type='text/javascript').
-         if (window.location.hash ) { history.replaceState({}, document.title, "/"); }
+         if (window.location.hash ) { document.getElementById("menu-toggle").checked = true; }
