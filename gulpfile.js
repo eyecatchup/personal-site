@@ -125,6 +125,7 @@
 
    gulp.task('svgsprite', function () {
       gulp.src( srcPathIcns + '/*.svg', { base: process.cwd() } )
+      .pipe( svgmin() )
       .pipe( svgSprite( config ) )
       .pipe( rename({
          dirname: "/",
