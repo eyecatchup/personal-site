@@ -16,9 +16,7 @@
  *	3. PANELS
  *		- 3.1 BEHAVIOR
  *		- 3.2 STYLE
- *
- *
- *	4. CALENDAR
+ *		- 3.3 ELEMENTS
  *
  **/
 
@@ -396,7 +394,6 @@
 
       @media screen and @medium {
       width: 45vw;
-      max-width: 700px;
       top: 0;
       right: 0;
       left: auto;
@@ -459,7 +456,7 @@
    /* 3.2 STYLE
    ========================================================================== */
 
-   .panel-content__heading {
+   .panel-heading {
    margin: 85px 0; }
 
 
@@ -475,3 +472,29 @@
    font-weight: 400;
    text-align: center;
    margin: 0; }
+
+
+   /* 3.3 ELEMENTS
+   ========================================================================== */
+
+
+   .panel-item {
+   text-align: center;
+   position: relative; }
+
+
+   .panel-item__picture {
+   max-width: 400px;
+   width: 100%;
+   border: 1px solid #F4F4F4;
+   display: inline-block;
+
+      @media screen and @large {
+      max-width: 800px; }
+   }
+
+
+   .panel-item__title {
+   font-size: 22px;
+   font-weight: 100;
+   text-align: center; }
