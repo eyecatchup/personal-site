@@ -12,12 +12,13 @@
  *	2. HEADLINE INFO AND NAVIGATION
  *		- 2.1 INFO
  *		- 2.2 NAVIGATION
- *
+
  *	3. PANELS
  *		- 3.1 BEHAVIOR
  *		- 3.2 STYLE
  *
- *	4. WORKS PANEL
+ *
+ *	4. CALENDAR
  *
  **/
 
@@ -102,6 +103,12 @@
    box-sizing: border-box;
    text-align: center;
    color: @color-secondary;
+
+
+      @media screen and @small {
+      width: auto;
+      text-align: left;
+      margin-left: 2vw; }
 
       @media screen and @large {
       width: auto;
@@ -224,11 +231,11 @@
    display: block;
    width: 100%;
    animation-duration: 1s;
-   animation-delay: 2s;
    animation-fill-mode: both;
+   animation-delay: 2s;
    position: relative;
 
-      @media screen and @large {
+      @media screen and @small {
       display: table-cell;
       vertical-align: middle;
       width: 43%; }
@@ -241,7 +248,7 @@
    transform: translateY(10vh);
    display: inline-block;
 
-      @media screen and @large {
+      @media screen and @small {
       transform: translateY( 0 ); }
    }
 
@@ -249,7 +256,7 @@
    .navigation__trigger {
    display: none;
 
-      @media screen and @large {
+      @media screen and @small {
       outline: none;
       opacity: 0;
       z-index: 1;
@@ -268,7 +275,7 @@
    .navigation-visual-trigger {
    display: none;
 
-      @media screen and @large {
+      @media screen and @small {
       display: block;
       position: relative;
       cursor: pointer;
@@ -290,6 +297,8 @@
 
    // Navigation behavior
    .navigation__trigger:checked {
+
+
 
       // show navigation links
       ~ .navigation__link {
@@ -324,13 +333,41 @@
       &:hover {
       box-shadow: inset 0 0 0 1px fade( @color-secondary, 10% ); }
 
-      @media screen and @large {
+      @media screen and @small {
       margin: 0;
       animation-duration: 1s;
       animation-fill-mode: both;
       display: none; }
    }
 
+
+
+   .tab-navigation {
+   position: fixed;
+   display: none;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   z-index: 2;
+   height: 64px;
+   animation-duration: 1s;
+   animation-fill-mode: both;
+   width: 100%;
+   border-top: 1px solid #F7F7F7;
+   box-sizing: border-box;
+   background-color: rgba( 255, 255, 255, 0.9);
+
+      @media screen and @small {
+      display: none; }
+   }
+
+   .tab-navigation__link:extend( .navigation__link ) {
+   display: table-cell;
+   text-align: center;
+   width: 100% / 3;
+   vertical-align: middle;
+   color: @color-primary;
+   text-decoration: none; }
 
 /* •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 3. BEHAVIOR AND STYLE
@@ -348,7 +385,7 @@
    box-sizing: border-box;
    -webkit-overflow-scrolling: touch;
    box-sizing: border-box;
-   padding: 0 40px;
+   padding: 0 40px 80px 40px;
    transform: translate3d( 100%, 0, 0 );
    transition: transform 600ms cubic-bezier(0.275, 0.935, 0.635, 1.005);
    will-change: transform, -webkit-transform;
@@ -358,17 +395,13 @@
    z-index: 2;
    bottom: 0;
 
-      @media screen and @large {
+      @media screen and @medium {
       width: 45vw;
       max-width: 700px;
       top: 0;
       right: 0;
       left: auto;
-      padding: 0 40px 40px 40px;
       bottom: 0; }
-
-      &--dark:extend( .panel all ) {
-      background-color: @color-primary; }
    }
 
 
@@ -382,6 +415,16 @@
       #@{panel}:target ~ .headline .navigation .navigation-container #@{panel}-link {
       background: @color-cta;
       color: @color-secondary; }
+
+      #@{panel}:target ~ .tab-navigation {
+      display: table;
+
+         @media screen and @small {
+         display: none; }
+      }
+
+      #@{panel}:target ~ .tab-navigation #@{panel}-link {
+      color: @color-cta; }
 
       #@{panel}:target ~ .panel-close {
       display: block; }
@@ -397,7 +440,7 @@
    animation-duration: 1s;
    animation-fill-mode: both;
 
-      @media screen and @large {
+      @media screen and @small {
       position: fixed;
       z-index: 2; }
    }
@@ -425,7 +468,6 @@
    font-size: 28px;
    font-weight: 700;
    text-align: center;
-   letter-spacing: 7px;
    margin: 0; }
 
 
@@ -434,8 +476,3 @@
    font-weight: 400;
    text-align: center;
    margin: 0; }
-
-
-/* •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-4. WORKS PANEL
-•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */

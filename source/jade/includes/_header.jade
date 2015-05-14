@@ -19,13 +19,13 @@ div.headline
       div.headline-socials
          //- Dribbble link
          a.headline-socials__link.fadeInUp( title="Follow my work on Dribbble" href="https://dribbble.com/astorino_mattia" target="_blank" )
-            svg.headline__social-icon: use( xlink:href="#source--icons--dribbble" ) a
+            svg.headline__social-icon: use( xlink:href="#source--icons--dribbble" )
          //- Twitter link
          a.headline-socials__link.fadeInUp( title="Follow me on Twitter" href="https://twitter.com/MattiaAstorino" target="_blank" )
-            svg.headline__social-icon: use( xlink:href="#source--icons--twitter" ) b
+            svg.headline__social-icon: use( xlink:href="#source--icons--twitter" )
          //- GitHub link
          a.headline-socials__link.fadeInUp( title="Follow my lab on GitHub" href="https://github.com/equinusocio" target="_blank" )
-            svg.headline__social-icon: use( xlink:href="#source--icons--github" ) v
+            svg.headline__social-icon: use( xlink:href="#source--icons--github" )
    //- Navigation menu
    //- •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••                  
    nav.navigation.fadeInLeft
@@ -37,3 +37,10 @@ div.headline
             |WORKS
          a#lab-link.navigation__link.fadeInLeft( href="#lab" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" )
             |LAB
+nav.tab-navigation.fadeInUp
+   a#works-link.tab-navigation__link( href="#works" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" )
+      |WORKS
+   a#home-link.tab-navigation__link( href="#home" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" )
+      svg.panel-close__icon: use( xlink:href="#source--icons--close" )
+   a#lab-link.tab-navigation__link( href="#lab" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" )
+      |LAB
