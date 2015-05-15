@@ -347,6 +347,7 @@
    right: 0;
    z-index: 2;
    height: 64px;
+   animation-delay: 400ms;
    animation-duration: 1s;
    animation-fill-mode: both;
    width: 100%;
@@ -503,6 +504,7 @@
    display: inline-block;
    width: auto !important;
    height: auto !important;
+   overflow: initial !important;
    border: 2px solid @color-primary;
    color: @color-primary;
 
@@ -515,6 +517,9 @@
       padding: 10px 20px;
       content: attr(data-value);
       display: inline-block; }
+
+      &:hover {
+      border-color: @color-cta; }
 
       &:active,
       &:focus {
