@@ -4,45 +4,45 @@
 
    .grid( @colNumber, @baseGrid: @base-grid-columns, @gutter: @base-grid-gutter, @align: left, @offset: 0 ) {
   
-   // Variables operatori
-   @initColWidth: ( @colNumber * 100 ) / @baseGrid;
-   @newOffset: ( @offset * 100 ) / @baseGrid;
-   
-   // Style for default grid parameters
-   width: unit( @initColWidth, % );
-   box-sizing: border-box;
-   float: left;
+      // Variables operatori
+      @initColWidth: ( @colNumber * 100 ) / @baseGrid;
+      @newOffset: ( @offset * 100 ) / @baseGrid;
+      
+      // Style for default grid parameters
+      width: unit( @initColWidth, % );
+      box-sizing: border-box;
+      float: left;
 
-   // Set left element with custom offset value
-   & when ( @align = left ) and not ( @offset = 0 ) {
-     width: unit( @initColWidth, % );
-     float: left;
-     margin-left: unit( @initColWidth, % );
-   }
+      // Set left element with custom offset value
+      & when ( @align = left ) and not ( @offset = 0 ) {
+        width: unit( @initColWidth, % );
+        float: left;
+        margin-left: unit( @initColWidth, % );
+      }
 
-   & when ( @align = right ) and ( @offset = 0 ) {
-     width: unit( @initColWidth, % );
-     float: right;
-   }
+      & when ( @align = right ) and ( @offset = 0 ) {
+        width: unit( @initColWidth, % );
+        float: right;
+      }
 
-   // Set right element with custom offset value
-   & when ( @align = right ) and not ( @offset = 0 ) { 
-     width: unit( @initColWidth, % );
-     float: right;
-     margin-right: ~"@{newOffset}%";
-   }
+      // Set right element with custom offset value
+      & when ( @align = right ) and not ( @offset = 0 ) { 
+        width: unit( @initColWidth, % );
+        float: right;
+        margin-right: ~"@{newOffset}%";
+      }
 
-   // Set centered element grid and alignment
-   & when ( @align = center ) {
-     width: unit( @initColWidth, % );
-     margin: 0 auto;
+      // Set centered element grid and alignment
+      & when ( @align = center ) {
+        width: unit( @initColWidth, % );
+        margin: 0 auto;
+      }
+     
+      // Apply gutter when @use-gutters is true
+      & when ( @use-gutters = true ) {
+        .gutter-calculator( @gutter, @initColWidth );
+      }
    }
-  
-   // Apply gutter when @use-gutters is true
-   & when ( @use-gutters = true ) {
-     .gutter-calculator( @gutter, @initColWidth );
-   }
-}
 
    // Reset grid position
    .ungrid() {
