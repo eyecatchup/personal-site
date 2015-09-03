@@ -2,84 +2,47 @@
 //  # GRID SYSTEM CLASS-FREE
 //  # grid.less
 
-   .grid( @colNumber, @baseGrid: @base-grid-columns, @gutter: @base-grid-gutter, @align: left ) when (default()) {
-
-      @colWidth: ( @colNumber * 100 ) / @baseGrid;
-
-      width: ~"@{colWidth}%";
+   .grid( @colNumber, @baseGrid: @base-grid-columns, @gutter: @base-grid-gutter, @align: left, @offset: 0 ) {
+  
+      // Variables operatori
+      @initColWidth: ( @colNumber * 100 ) / @baseGrid;
+      @newOffset: ( @offset * 100 ) / @baseGrid;
+      
+      // Style for default grid parameters
+      width: unit( @initColWidth, % );
       box-sizing: border-box;
       float: left;
 
+      // Set left element with custom offset value
+      & when ( @align = left ) and not ( @offset = 0 ) {
+        width: unit( @initColWidth, % );
+        float: left;
+        margin-left: unit( @initColWidth, % );
+      }
+
+      & when ( @align = right ) and ( @offset = 0 ) {
+        width: unit( @initColWidth, % );
+        float: right;
+      }
+
+      // Set right element with custom offset value
+      & when ( @align = right ) and not ( @offset = 0 ) { 
+        width: unit( @initColWidth, % );
+        float: right;
+        margin-right: ~"@{newOffset}%";
+      }
+
+      // Set centered element grid and alignment
+      & when ( @align = center ) {
+        width: unit( @initColWidth, % );
+        margin: 0 auto;
+      }
+     
       // Apply gutter when @use-gutters is true
       & when ( @use-gutters = true ) {
-         .gutter-calculator( @gutter, @colWidth );
+        .gutter-calculator( @gutter, @initColWidth );
       }
    }
-
-
-   // Set left element with custom offset value
-   .grid( @colNumber, @baseGrid: @base-grid-columns, @gutter: @base-grid-gutter, @align: left, @offset: 0 ) when ( @align = left ) and not ( @offset = 0 ) {
-
-      @colWidth: ( @colNumber * 100 ) / @baseGrid;
-      @newOffset: ( @offset * 100 ) / @baseGrid;
-      width: ~"@{colWidth}%";
-      float: left;
-      box-sizing: border-box;
-      margin-left: ~"@{newOffset}%";
-
-      // Apply gutter when @use-gutters is true
-      & when ( @use-gutters = true ) {
-         .gutter-calculator( @gutter, @colWidth );
-      }
-   }
-
-
-   // Set default right element
-   .grid(@colNumber, @baseGrid: @base-grid-columns, @gutter: @base-grid-gutter, @align: left, @offset: 0 ) when ( @align = right ) and ( @offset = 0 ) {
-
-      @colWidth: ( @colNumber * 100 ) / @baseGrid;
-      width: ~"@{colWidth}%";
-      box-sizing: border-box;
-      float: right;
-
-      // Apply gutter when @use-gutters is true
-      & when ( @use-gutters = true ) {
-         .gutter-calculator( @gutter, @colWidth );
-      }
-   }
-
-
-   // Set right element with custom offset value
-   .grid( @colNumber, @baseGrid: @base-grid-columns, @gutter: @base-grid-gutter, @align: left, @offset: 0 ) when ( @align = right ) and not ( @offset = 0 ) {
-
-      @colWidth: ( @colNumber * 100 ) / @baseGrid;
-      @newOffset: ( @offset * 100 ) / @baseGrid;
-      width: ~"@{colWidth}%";
-      float: right;
-      box-sizing: border-box;
-      margin-right: ~"@{newOffset}%";
-
-      // Apply gutter when @use-gutters is true
-      & when ( @use-gutters = true ) {
-         .gutter-calculator( @gutter, @colWidth );
-      }
-   }
-
-
-   // Set centered element grid and alignment
-   .grid( @colNumber, @baseGrid: @base-grid-columns, @gutter: @base-grid-gutter, @align: left ) when ( @align = center ) {
-
-      @colWidth: ( @colNumber * 100 ) / @baseGrid;
-      width: ~"@{colWidth}%";
-      box-sizing: border-box;
-      margin: 0 auto;
-
-      // Apply gutter when @use-gutters is true
-      & when ( @use-gutters = true ) {
-         .gutter-calculator( @gutter, @colWidth );
-      }
-   }
-
 
    // Reset grid position
    .ungrid() {
@@ -88,22 +51,29 @@
    margin: auto; }
 
 
-   // GUTTER CALCULATOR
-   // #############################################################################
+// GUTTER CALCULATOR
+// #############################################################################
 
    .gutter-calculator( @theGutter, @colWidth ) {
-      @gutterUnit: get-unit( @theGutter );
 
       // Apply inner padding when gutter is percentage
-      & when ( @gutterUnit = ~"%" ){
+      & when ( ispercentage( @theGutter ) ){
+
+         // Variables operators
          @newGutter: ( @theGutter * @colWidth ) / 100 ;
-         padding-left: @newGutter;
-         padding-right: @newGutter;
+
+         width: unit( @colWidth, % );
+         margin: @newGutter;
       }
 
       // Apply inner padding when gutter is pixel
-      & when not ( @gutterUnit = ~"%" ){
-         padding-left: @theGutter;
-         padding-right: @theGutter;
+      & when not ( ispercentage( @theGutter ) ){
+
+         // Variables operators
+         @newGutter: @theGutter * 2;
+
+         width: ~"calc( @{colWidth}% - @{newGutter} )";
+         margin: @theGutter;
       }
    }
+
