@@ -4,7 +4,7 @@
 
    .grid( @colNumber, @baseGrid: @base-grid-columns, @gutter: @base-grid-gutter, @align: left, @offset: 0 ) {
   
-   // Variables operator
+   // Variables operatori
    @initColWidth: ( @colNumber * 100 ) / @baseGrid;
    @newOffset: ( @offset * 100 ) / @baseGrid;
    
@@ -58,6 +58,8 @@
 
       // Apply inner padding when gutter is percentage
       & when ( ispercentage( @theGutter ) ){
+
+         // Variables operators
          @newGutter: ( @theGutter * @colWidth ) / 100 ;
 
          width: unit( @colWidth, % );
@@ -66,6 +68,8 @@
 
       // Apply inner padding when gutter is pixel
       & when not ( ispercentage( @theGutter ) ){
+
+         // Variables operators
          @newGutter: @theGutter * 2;
 
          width: ~"calc( @{colWidth}% - @{newGutter} )";
