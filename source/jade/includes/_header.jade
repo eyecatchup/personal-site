@@ -3,8 +3,10 @@ a.panel-close.fadeIn( href="#home" )
    svg.panel-close__icon: use( xlink:href="#source--icons--close" )
 //- Headline module 
 div.headline
+
    //- Personal information
    //- •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
    div.info( itemscope itemtype="http://schema.org/Person" )
       //- Headinline title
       h1.headline__title.fadeInDown( itemprop="name" )
@@ -26,8 +28,10 @@ div.headline
          //- GitHub link
          a.headline-socials__link.fadeInUp( title="Follow my lab on GitHub" href="https://github.com/equinusocio" target="_blank" )
             svg.headline__social-icon: use( xlink:href="#source--icons--github" )
+
    //- Navigation menu
-   //- •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••                  
+   //- •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••  
+
    nav.navigation.fadeInLeft
       div.navigation-container( itemscope itemtype="http://schema.org/BreadcrumbList" )
          input#menu-toggle.navigation__trigger( type="checkbox" )
@@ -37,6 +41,7 @@ div.headline
             |WORKS
          a#lab-link.navigation__link.fadeInLeft( href="#lab" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" )
             |LAB
+            
 //- Mobile tab navigation
 nav.tab-navigation.fadeInUp
    a#works-link.tab-navigation__link( href="#works" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" )
