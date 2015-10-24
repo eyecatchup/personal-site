@@ -151,7 +151,7 @@ var Time = _react2['default'].createClass({
 			),
 			_react2['default'].createElement(
 				'button',
-				{ disabled: !this.state.active ? 'disabled' : '', className: 'c-counter__controller', onClick: this.handleStop },
+				{ disabled: this.state.elapsed == 0 ? 'disabled' : '', className: 'c-counter__controller', onClick: this.handleStop },
 				_react2['default'].createElement(
 					'span',
 					null,

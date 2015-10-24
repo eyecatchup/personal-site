@@ -139,7 +139,7 @@ var Time = React.createClass({
 				<h1 className="c-counter__time"> { this.getMinutes() }:{ this.getSeconds() }:{ this.getPrimes() } </h1>
 
 				{/* Timer controls */}
-				<button disabled={( !this.state.active ? 'disabled' : '') } className="c-counter__controller" onClick={this.handleStop}><span>◼︎</span></button>
+				<button disabled={( this.state.elapsed == 0 ? 'disabled' : '') } className="c-counter__controller" onClick={this.handleStop}><span>◼︎</span></button>
 				<button className={ "c-counter__controller  c-counter__controller--play" + ( this.state.active ? ' isActive' : '' ) } onClick={this.handleStart}><span>{( this.state.active ? 'II' : '►' )}</span></button>
 				<button disabled={( this.state.maxSave==0 || !this.state.active ? 'disabled' : '') } className="c-counter__controller" onClick={ ( this.state.active ? this.saveTime : '' ) } ><span>✔︎</span></button>
 			</div>
