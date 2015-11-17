@@ -6,12 +6,9 @@
 	"url": "http://astorinomattia.it",
 	"private": true,
 	"main": "gulpfile.js",
-<<<<<<< HEAD
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-=======
->>>>>>> develop
 	"devDependencies": {
 		"browser-sync": "^2.2.1",
 		"gulp": "^3.8.11",
@@ -25,10 +22,6 @@
 		"gulp-rename": "^1.2.0",
 		"gulp-svg-sprite": "^1.1.2",
 		"gulp-svgmin": "^1.1.2",
-<<<<<<< HEAD
-		"gulp-svgo": "^0.1.1",
-=======
->>>>>>> develop
 		"gulp-svgstore": "^5.0.1",
 		"less-plugin-glob": "^1.1.0",
 		"path": "^0.11.14",
