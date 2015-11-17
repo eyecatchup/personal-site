@@ -4,8 +4,6 @@
 //
 //  Licensed under the MIT License
 //  http://opensource.org/licenses/MIT
-//  ————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 // Paths settings
 var distPath        = './dist'; // Your "distribution" folder
