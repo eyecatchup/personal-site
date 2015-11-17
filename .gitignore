@@ -2,21 +2,8 @@
 logs
 *.log
 .DS_Store
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 sftp-config.json
-=======
-<<<<<<< HEAD
->>>>>>> develop
-.sftp-config.json
-=======
-sftp-config.json
->>>>>>> develop
-<<<<<<< HEAD
-=======
->>>>>>> master
->>>>>>> develop
+
 
 # Runtime data
 pids
