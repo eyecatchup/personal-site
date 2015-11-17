@@ -121,6 +121,11 @@ var Time = React.createClass({
 		if ( this.state.maxSave != 0 && this.state.maxSave > 0 ) {
 			this.props.saveTimeCallback( `${this.getMinutes()}:${this.getSeconds()}:${this.getPrimes()}` );
 			this.state.maxSave--;
+
+			if ( this.state.maxSave == 0 ) {
+				this.handleStop();
+				this.resetTimer();
+			}
 		}
 		else {
 			this.handleStop();
@@ -141,7 +146,7 @@ var Time = React.createClass({
 				{/* Timer controls */}
 				<button disabled={( this.state.elapsed == 0 ? 'disabled' : '') } className="c-counter__controller" onClick={this.handleStop}><span>◼︎</span></button>
 				<button className={ "c-counter__controller  c-counter__controller--play" + ( this.state.active ? ' isActive' : '' ) } onClick={this.handleStart}><span>{( this.state.active ? 'II' : '►' )}</span></button>
-				<button disabled={( this.state.maxSave==0 || !this.state.active ? 'disabled' : '') } className="c-counter__controller" onClick={ ( this.state.active ? this.saveTime : '' ) } ><span>✔︎</span></button>
+				<button disabled={( this.state.maxSave == 0 || !this.state.active ? 'disabled' : '') } className="c-counter__controller" onClick={ ( this.state.active ? this.saveTime : '' ) } ><span>✔︎</span></button>
 			</div>
 		);
 	}
