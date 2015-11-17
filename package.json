@@ -6,9 +6,9 @@
 	"url": "http://astorinomattia.it",
 	"private": true,
 	"main": "gulpfile.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
+  "scripts": {
+    "gulp": "gulp",
+  },
 	"devDependencies": {
 		"browser-sync": "^2.2.1",
 		"gulp": "^3.8.11",
